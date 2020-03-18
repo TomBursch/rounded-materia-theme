@@ -1143,18 +1143,20 @@ $mdbt_radius: 100px;
   .remote-access-indicator { color: $warning_color; } // > 3.29.4
 
   &.solid {
-    background-color: $panel_bg;
+    background-color: $menu_bg_color;
     /* transition from transparent to solid */
     transition-duration: 250ms;
     background-gradient-direction: none; // for Ubuntu session
     text-shadow: none; // for Ubuntu session
+    
+    border-radius: 0 !important;
 
     &:overview { background-color: transparent; } // for Ubuntu session
 
     .panel-corner {
       -panel-corner-background-color: $panel_bg_color;
     }
-
+/*
     .panel-button {
       color: $panel_fg_color;
       text-shadow: none;
@@ -1164,7 +1166,7 @@ $mdbt_radius: 100px;
         text-shadow: none;
       }
     }
-
+*/
     .system-status-icon,
     .app-menu-icon > StIcon,
     .popup-menu-arrow {

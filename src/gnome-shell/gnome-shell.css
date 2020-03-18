@@ -1364,11 +1364,23 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.solid {
-  background-color: #000000;
+  background-color: rgba(255, 255, 255, 0.95);
   /* transition from transparent to solid */
   transition-duration: 250ms;
   background-gradient-direction: none;
   text-shadow: none;
+  border-radius: 0 !important;
+  /*
+    .panel-button {
+      color: $panel_fg_color;
+      text-shadow: none;
+
+      &:active, &:overview, &:focus, &:checked {
+        color: $inverse_fg_color;
+        text-shadow: none;
+      }
+    }
+*/
 }
 
 #panel.solid:overview {
@@ -1377,16 +1389,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #panel.solid .panel-corner {
   -panel-corner-background-color: rgba(0, 0, 0, 0.5);
-}
-
-#panel.solid .panel-button {
-  color: #dedede;
-  text-shadow: none;
-}
-
-#panel.solid .panel-button:active, #panel.solid .panel-button:overview, #panel.solid .panel-button:focus, #panel.solid .panel-button:checked {
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: none;
 }
 
 #panel.solid .system-status-icon,
