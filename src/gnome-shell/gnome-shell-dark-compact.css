@@ -87,7 +87,7 @@ StEntry {
   border-radius: 0;
   border-width: 0;
   selection-background-color: #4586D8;
-  selected-color: rgba(255, 255, 255, 0.85);
+  selected-color: #FFFFFF;
   font-size: 11.25pt;
   font-weight: 400;
   caret-color: rgba(255, 255, 255, 0.7);
@@ -824,7 +824,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* Popovers/Menus */
 .popup-menu {
-  min-width: 12em;
+  min-width: 15em;
   color: rgba(255, 255, 255, 0.9);
   background-color: transparent;
 }
@@ -865,6 +865,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .popup-menu .popup-sub-menu .popup-menu-item:not(:first-child):last-child {
   border-radius: 0 0 12px 12px;
+}
+
+.popup-menu .popup-menu-content {
+  padding: 8px 0;
 }
 
 .popup-menu .popup-menu-item {
@@ -954,12 +958,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-popup-boxpointer {
-  -arrow-border-radius: 0;
+  -arrow-border-radius: 3px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 0;
-  -arrow-rise: 0;
+  -arrow-base: 64px;
+  -arrow-rise: 6px;
   -arrow-box-shadow: none;
   margin: 4px 10px 16px;
   background-color: rgba(32, 32, 32, 0.95);
@@ -968,12 +972,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu-boxpointer {
-  -arrow-border-radius: 0;
+  -arrow-border-radius: 3px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 0;
-  -arrow-rise: 0;
+  -arrow-base: 64px;
+  -arrow-rise: 6px;
   -arrow-box-shadow: none;
   margin: 0;
   background-color: transparent;
@@ -1368,6 +1372,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button.clock-display:active .clock, #panel .panel-button.clock-display:overview .clock, #panel .panel-button.clock-display:focus .clock, #panel .panel-button.clock-display:checked .clock {
+<<<<<<< HEAD
+=======
+  background: none;
+>>>>>>> master
   box-shadow: none;
 }
 
@@ -1703,7 +1711,13 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 
 /* Message list */
 .message-list {
-  width: 25em;
+  width: 31.5em;
+  padding: 0 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.message-list .message-list-placeholder {
+  spacing: 12px;
 }
 
 .message-list-clear-button.button {
@@ -1719,31 +1733,31 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.message-list-sections {
+.message-list-section,
+.message-list-sections,
+.message-list-section-list {
   spacing: 8px;
 }
 
-.message-list-section,
-.message-list-section-list {
-  spacing: 8px;
+.message-list-controls {
+  margin: 8px 16px 0;
+  padding: 4px;
+  spacing: 16px;
 }
 
 .message {
   min-height: 56px;
   background-color: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
   border-radius: 12px;
-  text-shadow: none;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .message:hover, .message:focus {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 .message:active {
-  color: rgba(255, 255, 255, 0.9);
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -1756,14 +1770,13 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 }
 
 .message-icon-bin > StIcon {
-  color: rgba(255, 255, 255, 0.9);
-  icon-size: 1.2307692308em;
-  -st-icon-style: requested;
-  margin: 4px 0px 4px 4px;
+  icon-size: 32px;
+  -st-icon-style: symbolic;
+  margin: 8px 0px 8px 8px;
 }
 
 .message-icon-bin > StIcon:rtl {
-  margin: 4px 4px 4px 0px;
+  margin: 8px 8px 8px 0px;
 }
 
 .message-secondary-bin {
@@ -1775,8 +1788,6 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   padding-top: 2px;
   color: rgba(255, 255, 255, 0.7);
   font-size: 1em;
-  /* HACK: the label should be baseline-aligned with a 1em label,
-                     fake this with some bottom padding */
   padding-bottom: 0;
 }
 
@@ -1803,27 +1814,34 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   font-size: 1em;
 }
 
-.message-content * > StIcon {
-  icon-size: 16px;
-  border-radius: 16px;
-  padding: 2px;
+.message-close-button {
   color: rgba(255, 255, 255, 0.7);
+  padding: 0;
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
 }
 
-/* FIXME: how do you do this in sass? */
-.message-content *:hover > StIcon,
-.message-content *:focus > StIcon {
+.message-close-button:hover, .message-close-button:focus {
   color: rgba(255, 255, 255, 0.9);
   background-color: rgba(255, 255, 255, 0.06);
 }
 
-.message-content *:active > StIcon {
+.message-close-button:active {
   color: rgba(255, 255, 255, 0.9);
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.message-close-button:insensitive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.message-body {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .message-media-control {
-  margin: 16px 0;
+  margin: 16px 4px;
   padding: 8px;
   border-radius: 100px;
   color: rgba(255, 255, 255, 0.7);
@@ -1875,7 +1893,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   width: 48px;
   height: 48px;
   border-radius: 0 0 48px 0;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(69, 134, 216, 0.35);
   background-image: none;
   background-size: auto;
 }
@@ -1970,6 +1988,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 
 .nm-dialog-scroll-view {
   border: none;
+  background-color: transparent;
 }
 
 .nm-dialog-header {
@@ -2045,12 +2064,17 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   padding: 4px 8px;
+  border: none;
+  font-size: 1em;
+  font-weight: normal;
 }
 
-.search-entry, .app-folder-dialog .folder-name-container .folder-name-entry {
+.search-entry {
   width: 304px;
   padding: 0 8px;
   border: none;
+  selection-background-color: #4586D8;
+  selected-color: #FFFFFF;
   caret-color: rgba(0, 0, 0, 0.75);
   color: rgba(0, 0, 0, 0.75);
   background-color: rgba(255, 255, 255, 0.75);
@@ -2061,7 +2085,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   selected-color: white;
 }
 
-.search-entry:focus, .app-folder-dialog .folder-name-container .folder-name-entry:focus {
+.search-entry:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.95);
@@ -2070,19 +2094,23 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   padding: 0 8px;
 }
 
-.search-entry .search-entry-icon, .app-folder-dialog .folder-name-container .folder-name-entry .search-entry-icon {
+.search-entry .search-entry-icon {
   icon-size: 16px;
   padding: 0 0;
   color: rgba(0, 0, 0, 0.75);
 }
 
-.search-entry:hover .search-entry-icon, .app-folder-dialog .folder-name-container .folder-name-entry:hover .search-entry-icon, .search-entry:focus .search-entry-icon, .app-folder-dialog .folder-name-container .folder-name-entry:focus .search-entry-icon {
+.search-entry:hover .search-entry-icon, .search-entry:focus .search-entry-icon {
   color: rgba(0, 0, 0, 0.75);
 }
 
-.search-entry:insensitive, .app-folder-dialog .folder-name-container .folder-name-entry:insensitive, .search-entry StLabel.hint-text, .app-folder-dialog .folder-name-container .folder-name-entry StLabel.hint-text {
+.search-entry:insensitive {
   color: rgba(0, 0, 0, 0.35);
   box-shadow: none;
+}
+
+.search-entry StLabel.hint-text {
+  color: rgba(0, 0, 0, 0.45);
 }
 
 #searchResultsBin {
@@ -2116,8 +2144,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 }
 
 .search-section-separator {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.15);
+  height: 0;
 }
 
 .list-search-result-content {
@@ -2291,7 +2318,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 }
 
 .app-well-app-running-dot {
-  width: 5px;
+  width: 8px;
   height: 2px;
   border-radius: 0;
   background-color: rgba(255, 255, 255, 0.85);
@@ -2343,12 +2370,6 @@ StWidget.focused .app-well-app-running-dot {
   padding: 5px;
 }
 
-.app-folder-icon {
-  padding: 5px;
-  spacing-rows: 5px;
-  spacing-columns: 5px;
-}
-
 .page-indicator {
   padding: 15px 20px;
 }
@@ -2393,10 +2414,24 @@ StWidget.focused .app-well-app-running-dot {
   background-image: none;
 }
 
-.app-well-app > .overview-icon.overview-icon-with-label,
 .grid-search-result .overview-icon.overview-icon-with-label {
   padding: 10px 8px 5px 8px;
-  spacing: 4px;
+  spacing: 6px;
+}
+
+.overview-icon.overview-icon-with-label {
+  padding: 10px 8px 5px 8px;
+}
+
+.overview-icon.overview-icon-with-label > StBoxLayout {
+  spacing: 6px;
+}
+
+/* App Folders */
+.app-folder .overview-icon {
+  background-color: rgba(255, 255, 255, 0.13);
+  padding: 16px;
+  border-radius: 100px;
 }
 
 .app-folder-dialog {
@@ -2415,6 +2450,29 @@ StWidget.focused .app-well-app-running-dot {
 .app-folder-dialog .folder-name-container .folder-name-label, .app-folder-dialog .folder-name-container .folder-name-entry {
   font-size: 18pt;
   font-weight: bold;
+}
+
+.app-folder-dialog .folder-name-container .folder-name-entry {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  selection-background-color: #4586D8;
+  selected-color: #FFFFFF;
+}
+
+.app-folder-dialog .folder-name-container .folder-name-entry:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.app-folder-dialog .folder-name-container .folder-name-entry .search-entry-icon {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.app-folder-dialog .folder-name-container .folder-name-entry:hover .search-entry-icon, .app-folder-dialog .folder-name-container .folder-name-entry:focus .search-entry-icon {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.app-folder-dialog .folder-name-container .folder-name-entry:insensitive, .app-folder-dialog .folder-name-container .folder-name-entry StLabel.hint-text {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .app-folder-dialog .folder-name-container .folder-name-label {
@@ -3232,9 +3290,10 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 #LookingGlassDialog {
+  color: rgba(255, 255, 255, 0.7);
   background-color: #202020;
   spacing: 4px;
-  padding: 0;
+  padding: 6px;
   border: none;
   border-radius: 12px;
   box-shadow: 0 14px 14px rgba(0, 0, 0, 0.5), 0 10px 5px rgba(0, 0, 0, 0.44);
@@ -3474,6 +3533,10 @@ StWidget.focused .app-well-app-running-dot {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.openweather-button, .openweather-button-action, .openweather-menu-button-container, .openweather-button-box {
+  border: 1px solid transparent;
+}
+
 .openweather-provider {
   padding: 0 16px;
   font-weight: 500;
@@ -3540,7 +3603,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 /* GPaste */
-.popup-menu .search-entry, .popup-menu .app-folder-dialog .folder-name-container .folder-name-entry, .app-folder-dialog .folder-name-container .popup-menu .folder-name-entry {
+.popup-menu .search-entry {
   color: rgba(255, 255, 255, 0.9);
   selection-background-color: #4586D8;
   selected-color: rgba(255, 255, 255, 0.85);
@@ -3553,17 +3616,17 @@ StWidget.focused .app-well-app-running-dot {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 5px 8px rgba(0, 0, 0, 0.05);
 }
 
-.popup-menu .search-entry:focus, .popup-menu .app-folder-dialog .folder-name-container .folder-name-entry:focus, .app-folder-dialog .folder-name-container .popup-menu .folder-name-entry:focus {
+.popup-menu .search-entry:focus {
   color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 5px 8px rgba(0, 0, 0, 0.08);
   border: 2px solid #4586D8;
   color: rgba(255, 255, 255, 0.9);
 }
 
-.popup-menu .search-entry .search-entry-icon, .popup-menu .app-folder-dialog .folder-name-container .folder-name-entry .search-entry-icon, .app-folder-dialog .folder-name-container .popup-menu .folder-name-entry .search-entry-icon {
+.popup-menu .search-entry .search-entry-icon {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.popup-menu .search-entry:hover .search-entry-icon, .popup-menu .app-folder-dialog .folder-name-container .folder-name-entry:hover .search-entry-icon, .app-folder-dialog .folder-name-container .popup-menu .folder-name-entry:hover .search-entry-icon, .popup-menu .search-entry:focus .search-entry-icon, .popup-menu .app-folder-dialog .folder-name-container .folder-name-entry:focus .search-entry-icon, .app-folder-dialog .folder-name-container .popup-menu .folder-name-entry:focus .search-entry-icon {
+.popup-menu .search-entry:hover .search-entry-icon, .popup-menu .search-entry:focus .search-entry-icon {
   color: rgba(255, 255, 255, 0.9);
 }
