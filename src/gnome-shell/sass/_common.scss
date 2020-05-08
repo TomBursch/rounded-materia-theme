@@ -1148,6 +1148,16 @@ $mdbt_radius: 100px;
       &:focus, &:hover, &:active { color: $inverse_fg_color; }
     }
   }
+  
+  .panel-button.clock-display {
+    // Move highlight from .panel-button to .clock
+    &:active, &:overview, &:focus, &:checked {
+      box-shadow: none;
+      .clock {
+        box-shadow: none;
+      }
+    }
+  }
 
   .panel-status-indicators-box,
   .panel-status-menu-box {
@@ -1163,12 +1173,11 @@ $mdbt_radius: 100px;
   .remote-access-indicator { color: $warning_color; } // > 3.29.4
 
   &.solid {
-    background-color: $menu_bg_color;
+    background-color: if($variant =='dark', $base_color, #202020);
     /* transition from transparent to solid */
     transition-duration: 250ms;
     background-gradient-direction: none; // for Ubuntu session
     text-shadow: none; // for Ubuntu session
-    
     border-radius: 0 !important;
 
     &:overview { background-color: transparent; } // for Ubuntu session
@@ -1176,17 +1185,7 @@ $mdbt_radius: 100px;
     .panel-corner {
       -panel-corner-background-color: $panel_bg_color;
     }
-/*
-    .panel-button {
-      color: $panel_fg_color;
-      text-shadow: none;
-
-      &:active, &:overview, &:focus, &:checked {
-        color: $inverse_fg_color;
-        text-shadow: none;
-      }
-    }
-*/
+    
     .system-status-icon,
     .app-menu-icon > StIcon,
     .popup-menu-arrow {
@@ -1305,6 +1304,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 
     .world-clocks-header,
     .weather-header,
+    .weather-forecast-time,
     .events-section-title {
       color: $secondary_fg_color;
       font-weight: bold;
@@ -1358,10 +1358,13 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
       padding: 0;
       margin: 2px;
       border-radius: 100px;
-      color: $secondary_fg_color;
-      &:hover,&:focus { background-color: $divider_color; }
+      color: $fg_color;
+      background-color: transparent;
+      
+      &:hover,&:focus {
+      	background-color: $divider_color;
+      }
       &:active {
-        color: inherit;
         background-color: $track_color;
         border-color: transparent; //avoid jumparound due to today
       }
@@ -1391,13 +1394,12 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 
       }
       .calendar-nonwork-day {
-        color: $fg_color;
+      
       }
       .calendar-today {
-        font-weight: bold !important;
-        color: white;
-        background-color: $primary_color;
-        border: none;
+      	background-color: none !important;
+        border: 1px solid $primary_color;
+	margin: 1px !important;
 
         &:hover, &:focus {
           background-color: lighten($primary_color, 3%);
@@ -1415,10 +1417,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
         }
       }
       .calendar-day-with-events {
-        color: $link_color;
-        font-weight: normal;
-        text-decoration: underline;
-        background-image: none;
+        background-image: url("assets/calendar-event.svg");
       }
       .calendar-other-month-day {
         color: $disabled_secondary_fg_color;
@@ -1506,6 +1505,10 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
             font-weight: bold;
             font-size: 1em;
           }
+          
+	  .message-body {
+	    color: $secondary_fg_color;
+	  }
 
           .message-content {
             min-height: $menuitem_size * 2 - 8px * 2;
@@ -2267,7 +2270,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
     color: inherit;
     background-color: $keyboard_bg_color;
     box-shadow: 0 1px rgba($black, 0.2);
-    &:focus, &:hover { color: $inverse_fg_color; background-color: $accent_color; }
+    &:focus { color: $inverse_fg_color; background-color: $accent_color; }
     &:checked, &:active { color: $inverse_fg_color; background-color: darken($accent_color, 6%); }
     &:grayed { //FIXME
       background-color: $alt_bg_color;
