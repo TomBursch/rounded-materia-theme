@@ -1148,16 +1148,6 @@ $mdbt_radius: 100px;
       &:focus, &:hover, &:active { color: $inverse_fg_color; }
     }
   }
-  
-  .panel-button.clock-display {
-    // Move highlight from .panel-button to .clock
-    &:active, &:overview, &:focus, &:checked {
-      box-shadow: none;
-      .clock {
-        box-shadow: none;
-      }
-    }
-  }
 
   .panel-button.clock-display {
     &:active, &:overview, &:focus, &:checked {
@@ -1313,13 +1303,13 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   @include font(headline);
 }
 
-    .world-clocks-header,
-    .weather-header,
-    .weather-forecast-time,
-    .events-section-title {
-      color: $secondary_fg_color;
-      font-weight: bold;
-    }
+.world-clocks-header,
+.weather-header,
+.weather-forecast-time,
+.events-section-title {
+  color: $secondary_fg_color;
+  font-weight: bold;
+}
 
 .world-clocks-grid {
   spacing-rows: 0.4em;
@@ -1346,7 +1336,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   margin: 2px;
   border-radius: 100px;
   background-color: transparent;
-  color: $fg_color;
+  color: $secondary_fg_color;
   &:hover, &:focus { background-color: $divider_color; }
   &:active { background-color: $track_color; }
 }
@@ -1369,7 +1359,8 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   padding: 0;
   margin: 2px;
   border-radius: 100px;
-  color: $secondary_fg_color;
+  color: $fg_color;
+  background-color: transparent;
   &:hover,&:focus { background-color: $divider_color; }
   &:active {
     color: inherit;
@@ -1403,15 +1394,9 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   color: $fg_color;
 }
 .calendar-today {
-  font-weight: bold !important;
-  color: white;
-  background-color: $primary_color;
-  border: none;
-
-  &:hover, &:focus {
-    background-color: lighten($primary_color, 3%);
-    color: white;
-  }
+  background-color: none !important;
+  border: 1px solid $primary_color;
+  margin: 1px !important;
 
   &:active, &:selected {
     background-color: $primary_color;
@@ -1424,10 +1409,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   }
 }
 .calendar-day-with-events {
-  color: $link_color;
-  font-weight: normal;
-  text-decoration: underline;
-  background-image: none;
+  background-image: url("assets/calendar-event.svg");
 }
 .calendar-other-month-day {
   color: $disabled_secondary_fg_color;
@@ -1514,9 +1496,6 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   icon-size: em(16px);
 }
 
-	  .message-body {
-	    color: $secondary_fg_color;
-	  }
 .message-title {
   min-height: $small_size - 2px;
   padding-top: 2px;
@@ -2342,7 +2321,7 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
     background-color: $alt_bg_color;
     color: $inverse_fg_color;
     border-color: $alt_bg_color;
-  &:focus, &:hover { color: $inverse_fg_color; background-color: $accent_color; }
+  &:focus { color: $inverse_fg_color; background-color: $accent_color; }
   }
 
   &.default-key { background-size: 20px; } // backspace button
