@@ -1664,14 +1664,9 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 }
 
 .calendar-today {
-  background-color: none !important;
+  background-color: none;
   border: 1px solid #4586D8;
   margin: 1px !important;
-}
-
-.calendar-today:hover, .calendar-today:focus {
-  background-color: #528edb;
-  color: white;
 }
 
 .calendar-today:active, .calendar-today:selected {

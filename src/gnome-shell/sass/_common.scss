@@ -1397,14 +1397,9 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
       
       }
       .calendar-today {
-      	background-color: none !important;
+      	background-color: none;
         border: 1px solid $primary_color;
 	margin: 1px !important;
-
-        &:hover, &:focus {
-          background-color: lighten($primary_color, 3%);
-          color: white;
-        }
 
         &:active, &:selected {
           background-color: $primary_color;
