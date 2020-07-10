@@ -1347,17 +1347,20 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
   padding: 0 0;
   margin: 2px;
   border-radius: 1000px;
-  color: $secondary_fg_color;
+  color: $fg_color;
   border: none;
   font-feature-settings: "tnum";
-  &:hover,&:focus { background-color: $divider_color; }
+  &:hover,&:focus {
+    color: $fg_color !important;
+    background-color: $divider_color; 
+  }
   &:active {
     color: inherit;
     background-color: $track_color;
     border-color: transparent; //avoid jumparound due to today
   }
   &:selected {
-    color: $inverse_fg_color;
+    color: $inverse_fg_color !important;
     background-color: $primary_color;
     border-color: transparent; //avoid jumparound due to today
   }
@@ -1386,35 +1389,17 @@ Gjs_ArcMenu_ApplicationsButton.panel-button {
 }
 
 .calendar-today {
-  background-color: none !important;
+  background-color: transparent;
   border: 1px solid $primary_color;
   margin: 1px !important;
-
-  &:active, &:selected {
-    background-color: $primary_color;
-    color: white;
-
-    &:hover, &:focus {
-      background-color: lighten($primary_color, 3%);
-      color: white;
-    }
-  }
 }
 
 .calendar-day-with-events {
-  color: $link_color;
-  font-weight: normal;
-  text-decoration: underline;
-  background-image: none;
-
-  &.calendar-work-day {
-    color: $hint_fg_color;
-    font-weight: bold;
-  }
+  background-image: url("assets/calendar-event.svg");
 }
 
 .calendar-other-month-day {
-  color: $disabled_secondary_fg_color;
+  color: $disabled_fg_color;
   opacity: 0.5;
 }
 
