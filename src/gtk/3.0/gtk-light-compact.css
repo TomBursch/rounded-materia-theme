@@ -5433,11 +5433,11 @@ terminal-window headerbar button:not(.flat):not(.combo):not(.titlebutton):focus,
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-terminal-window headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), terminal-window .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+terminal-window headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, terminal-window .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #6ab878 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-terminal-window headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, terminal-window .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+terminal-window headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, terminal-window .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #6ab878 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -5555,11 +5555,11 @@ window.org-gnome-gedit headerbar button:not(.flat):not(.combo):not(.titlebutton)
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.org-gnome-gedit headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.org-gnome-gedit .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.org-gnome-gedit headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.org-gnome-gedit .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFA000 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.org-gnome-gedit headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.org-gnome-gedit .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.org-gnome-gedit headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.org-gnome-gedit .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFA000 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -5677,15 +5677,15 @@ window.org-gnome-Calendar > popover .titlebar button:not(.flat):not(.combo):not(
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.org-gnome-Calendar > overlay headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.org-gnome-Calendar > overlay .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action),
-window.org-gnome-Calendar > popover headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action),
-window.org-gnome-Calendar > popover .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.org-gnome-Calendar > overlay headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.org-gnome-Calendar > overlay .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button,
+window.org-gnome-Calendar > popover headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button,
+window.org-gnome-Calendar > popover .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4CAF50 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.org-gnome-Calendar > overlay headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.org-gnome-Calendar > overlay .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked,
-window.org-gnome-Calendar > popover headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked,
-window.org-gnome-Calendar > popover .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.org-gnome-Calendar > overlay headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.org-gnome-Calendar > overlay .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked,
+window.org-gnome-Calendar > popover headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked,
+window.org-gnome-Calendar > popover .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4CAF50 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -5804,11 +5804,11 @@ window.background.csd > hdyleaflet > box.vertical > stack.main-container headerb
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.background.csd > hdyleaflet > box.vertical > stack.main-container headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.background.csd > hdyleaflet > box.vertical > stack.main-container .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.background.csd > hdyleaflet > box.vertical > stack.main-container headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.background.csd > hdyleaflet > box.vertical > stack.main-container .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #6D4C41 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.background.csd > hdyleaflet > box.vertical > stack.main-container headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.background.csd > hdyleaflet > box.vertical > stack.main-container .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.background.csd > hdyleaflet > box.vertical > stack.main-container headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.background.csd > hdyleaflet > box.vertical > stack.main-container .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #6D4C41 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -5972,11 +5972,11 @@ window.background.csd > hdyleaflet > stack.background headerbar button:not(.flat
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.background.csd > hdyleaflet > stack.background headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.background.csd > hdyleaflet > stack.background .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.background.csd > hdyleaflet > stack.background headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.background.csd > hdyleaflet > stack.background .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #5E35B1 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.background.csd > hdyleaflet > stack.background headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.background.csd > hdyleaflet > stack.background .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.background.csd > hdyleaflet > stack.background headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.background.csd > hdyleaflet > stack.background .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #5E35B1 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6107,11 +6107,11 @@ window.background.csd.org-gnome-Builder headerbar button:not(.flat):not(.combo):
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.background.csd.org-gnome-Builder headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.background.csd.org-gnome-Builder .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.background.csd.org-gnome-Builder headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.background.csd.org-gnome-Builder .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #424242 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.background.csd.org-gnome-Builder headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.background.csd.org-gnome-Builder .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.background.csd.org-gnome-Builder headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.background.csd.org-gnome-Builder .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #424242 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6204,11 +6204,11 @@ window#gnome-system-monitor headerbar button:not(.flat):not(.combo):not(.titlebu
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window#gnome-system-monitor headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window#gnome-system-monitor .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window#gnome-system-monitor headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window#gnome-system-monitor .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #188c75 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window#gnome-system-monitor headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window#gnome-system-monitor .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window#gnome-system-monitor headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window#gnome-system-monitor .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #188c75 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6305,11 +6305,11 @@ window.org-gnome-Todo headerbar button:not(.flat):not(.combo):not(.titlebutton):
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.org-gnome-Todo headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.org-gnome-Todo .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.org-gnome-Todo headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.org-gnome-Todo .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F4511E 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.org-gnome-Todo headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.org-gnome-Todo .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.org-gnome-Todo headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.org-gnome-Todo .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F4511E 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6402,11 +6402,11 @@ window.dconf-editor headerbar button:not(.flat):not(.combo):not(.titlebutton):fo
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.dconf-editor headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.dconf-editor .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.dconf-editor headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.dconf-editor .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #9C27B0 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.dconf-editor headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.dconf-editor .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.dconf-editor headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.dconf-editor .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #9C27B0 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6536,15 +6536,15 @@ window.geary-main-window .titlebar button:not(.flat):not(.combo):not(.titlebutto
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window#GearyMainWindow headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window#GearyMainWindow .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action),
-window.geary-main-window headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action),
-window.geary-main-window .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window#GearyMainWindow headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window#GearyMainWindow .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button,
+window.geary-main-window headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button,
+window.geary-main-window .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #D93025 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window#GearyMainWindow headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window#GearyMainWindow .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked,
-window.geary-main-window headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked,
-window.geary-main-window .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window#GearyMainWindow headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window#GearyMainWindow .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked,
+window.geary-main-window headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked,
+window.geary-main-window .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #D93025 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6642,11 +6642,11 @@ window.background.csd.budgie-settings-window headerbar button:not(.flat):not(.co
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-window.background.csd.budgie-settings-window headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), window.background.csd.budgie-settings-window .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+window.background.csd.budgie-settings-window headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, window.background.csd.budgie-settings-window .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #37474F 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-window.background.csd.budgie-settings-window headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, window.background.csd.budgie-settings-window .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+window.background.csd.budgie-settings-window headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, window.background.csd.budgie-settings-window .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #37474F 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
@@ -6739,11 +6739,11 @@ dialog.background.csd headerbar button:not(.flat):not(.combo):not(.titlebutton):
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
-dialog.background.csd headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action), dialog.background.csd .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action) {
+dialog.background.csd headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button, dialog.background.csd .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #E91E63 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-dialog.background.csd headerbar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked, dialog.background.csd .titlebar stackswitcher button.text-button:not(.suggested-action):not(.destructive-action):checked {
+dialog.background.csd headerbar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked, dialog.background.csd .titlebar stackswitcher button:not(.suggested-action):not(.destructive-action).text-button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #E91E63 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
