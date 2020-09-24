@@ -1246,15 +1246,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .tile-preview-left.on-primary {
-  border-radius: 0 0 0 0;
+  border-radius: 15px 0 0 0;
 }
 
 .tile-preview-right.on-primary {
-  border-radius: 0 0 0 0;
+  border-radius: 0 15px 0 0;
 }
 
 .tile-preview-left.tile-preview-right.on-primary {
-  border-radius: 0 0 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 /* TOP BAR */
@@ -1265,7 +1265,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-weight: bold;
   height: 36px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.3);
-  border-radius: 0 0 16px 16px;
 }
 
 #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
@@ -1277,9 +1276,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-corner {
-  -panel-corner-radius: 0;
+  -panel-corner-radius: 15px;
   -panel-corner-background-color: rgba(0, 0, 0, 0.5);
-  -panel-corner-border-width: 0;
+  -panel-corner-border-width: 2px;
   -panel-corner-border-color: transparent;
 }
 
