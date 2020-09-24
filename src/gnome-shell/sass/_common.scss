@@ -12,6 +12,7 @@ $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
  * This program is free software; you can redistribute it and/or modify it
  * under the terms and conditions of the GNU Lesser General Public License,
  * version 2.1, as published by the Free Software Foundation.
+ 
  *
  * This program is distributed in the hope it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -1067,6 +1068,12 @@ $mdbt_radius: 100px;
   &.login-screen,
   &.lock-screen {
     background-color: transparent;
+    .panel-corner {
+      -panel-corner-radius: $panel-corner-radius;
+      -panel-corner-background-color: transparent;
+      -panel-corner-border-width: 2px;
+      -panel-corner-border-color: transparent;
+    }
   }
 
   #panelLeft, #panelCenter { // spacing between activities<>app menu and such
@@ -1179,12 +1186,14 @@ $mdbt_radius: 100px;
     transition-duration: 250ms;
     background-gradient-direction: none; // for Ubuntu session
     text-shadow: none; // for Ubuntu session
-    border-radius: 0 !important;
 
     &:overview { background-color: transparent; } // for Ubuntu session
 
     .panel-corner {
-      -panel-corner-background-color: $panel_bg_color;
+      -panel-corner-radius: $panel-corner-radius;
+      -panel-corner-background-color: if($variant =='dark', $base_color, #202020);
+      -panel-corner-border-width: 2px;
+      -panel-corner-border-color: transparent;
     }
     
     .system-status-icon,
