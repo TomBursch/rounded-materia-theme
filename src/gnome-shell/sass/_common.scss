@@ -1071,7 +1071,7 @@ $mdbt_radius: 100px;
     .panel-corner {
       -panel-corner-radius: $panel-corner-radius;
       -panel-corner-background-color: transparent;
-      -panel-corner-border-width: 2px;
+      -panel-corner-border-width: 0;
       -panel-corner-border-color: transparent;
     }
   }
@@ -1083,7 +1083,7 @@ $mdbt_radius: 100px;
   .panel-corner {
     -panel-corner-radius: $panel-corner-radius;
     -panel-corner-background-color: $panel_bg_color;
-    -panel-corner-border-width: 2px;
+    -panel-corner-border-width: 0;
     -panel-corner-border-color: transparent;
 
     &:active, &:overview, &:focus {

@@ -1275,7 +1275,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panel:overview .panel-corner, #panel.unlock-screen .panel-corner, #panel.login-screen .panel-corner, #panel.lock-screen .panel-corner {
   -panel-corner-radius: 15px;
   -panel-corner-background-color: transparent;
-  -panel-corner-border-width: 2px;
+  -panel-corner-border-width: 0;
   -panel-corner-border-color: transparent;
 }
 
@@ -1286,7 +1286,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panel .panel-corner {
   -panel-corner-radius: 15px;
   -panel-corner-background-color: rgba(0, 0, 0, 0.5);
-  -panel-corner-border-width: 2px;
+  -panel-corner-border-width: 0;
   -panel-corner-border-color: transparent;
 }
 
