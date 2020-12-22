@@ -1437,7 +1437,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   icon-shadow: none;
 }
 
-#panel #panelActivities.panel-button > * {
+Gjs_AggregateMenu.panel-button,
+Gjs_ui_panel_AggregateMenu.panel-button,
+Gjs_ArcMenu_ApplicationsButton.panel-button,
+Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-panel-menu {
+  background-color: rgba(222, 222, 222, 0.15) !important;
+}
+
+Gjs_ui_panel_ActivitiesButton.panel-button {
   background-image: url("assets/activities-small.svg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -1448,25 +1455,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   text-shadow: 0 0 transparent !important;
   transition-duration: 0ms !important;
   box-shadow: none !important;
-  color: transparent;
+  color: transparent !important;
 }
 
-#panel #panelActivities.panel-button:hover, #panel #panelActivities.panel-button:active, #panel #panelActivities.panel-button:overview, #panel #panelActivities.panel-button:focus, #panel #panelActivities.panel-button:checked {
+Gjs_ui_panel_ActivitiesButton.panel-button:hover, Gjs_ui_panel_ActivitiesButton.panel-button:active, Gjs_ui_panel_ActivitiesButton.panel-button:overview, Gjs_ui_panel_ActivitiesButton.panel-button:focus, Gjs_ui_panel_ActivitiesButton.panel-button:checked {
   background-color: transparent;
   border: none;
   transition: none;
   animation: none;
 }
 
-#panel #panelActivities.panel-button:active > *, #panel #panelActivities.panel-button:overview > *, #panel #panelActivities.panel-button:focus > *, #panel #panelActivities.panel-button:checked > * {
+Gjs_ui_panel_ActivitiesButton.panel-button:active, Gjs_ui_panel_ActivitiesButton.panel-button:overview, Gjs_ui_panel_ActivitiesButton.panel-button:focus, Gjs_ui_panel_ActivitiesButton.panel-button:checked {
   background-image: url("assets/activities-active-small.svg");
-}
-
-Gjs_AggregateMenu.panel-button,
-Gjs_ui_panel_AggregateMenu.panel-button,
-Gjs_ArcMenu_ApplicationsButton.panel-button,
-Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-panel-menu {
-  background-color: rgba(222, 222, 222, 0.15) !important;
 }
 
 .clock-display-box {
@@ -1523,6 +1523,7 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
 .datemenu-today-button,
 .world-clocks-button,
 .weather-button,
+.events-button,
 .message-list-section-title,
 .events-section-title {
   min-height: 20px;
@@ -1540,6 +1541,8 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
 .world-clocks-button:focus,
 .weather-button:hover,
 .weather-button:focus,
+.events-button:hover,
+.events-button:focus,
 .message-list-section-title:hover,
 .message-list-section-title:focus,
 .events-section-title:hover,
@@ -1551,6 +1554,7 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
 .datemenu-today-button:active,
 .world-clocks-button:active,
 .weather-button:active,
+.events-button:active,
 .message-list-section-title:active,
 .events-section-title:active {
   color: rgba(255, 255, 255, 0.9);
@@ -2524,14 +2528,19 @@ StWidget.focused .app-well-app-running-dot {
 .app-folder .overview-icon {
   background-color: rgba(255, 255, 255, 0.13);
   padding: 16px;
-  border-radius: 100px;
+  border-radius: 9999px;
+}
+
+.app-folder:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .app-folder-dialog {
-  border-radius: 36px;
-  border: none;
+  border-radius: 48px;
+  border: 2px solid #4586D8;
   spacing: 12px;
-  background-color: rgba(0, 0, 0, 0.85);
+  padding: 0;
+  background-color: rgba(16, 16, 16, 0.95);
 }
 
 .app-folder-dialog .folder-name-container {
@@ -2550,6 +2559,7 @@ StWidget.focused .app-well-app-running-dot {
   background-color: rgba(255, 255, 255, 0.15);
   selection-background-color: #4586D8;
   selected-color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .app-folder-dialog .folder-name-container .folder-name-entry:focus {
@@ -2565,7 +2575,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .app-folder-dialog .folder-name-container .folder-name-entry:insensitive, .app-folder-dialog .folder-name-container .folder-name-entry StLabel.hint-text {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .app-folder-dialog .folder-name-container .folder-name-label {
@@ -2595,13 +2605,26 @@ StWidget.focused .app-well-app-running-dot {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+.app-folder-dialog .icon-grid {
+  row-spacing: 8px;
+  column-spacing: 20px;
+}
+
+.app-folder-dialog .page-indicators {
+  margin-bottom: 18px;
+}
+
+.app-folder-dialog .page-indicators .page-indicator {
+  padding: 15px 12px;
+}
+
 .app-folder-dialog StButton#vhandle, .app-folder-dialog StButton#vhandle:hover, .app-folder-dialog StButton#vhandle:active {
   background-color: transparent;
 }
 
 .app-folder-dialog-container {
-  padding: 12px;
-  width: 800px;
+  padding: 4px;
+  width: 600px;
   height: 600px;
 }
 
@@ -2609,6 +2632,19 @@ StWidget.focused .app-well-app-running-dot {
   padding: 4px;
   spacing-rows: 4px;
   spacing-columns: 4px;
+}
+
+.rename-folder-popup .rename-folder-popup-item {
+  spacing: 4px;
+}
+
+.rename-folder-popup .rename-folder-popup-item:ltr, .rename-folder-popup .rename-folder-popup-item:rtl {
+  padding: 0 8px;
+}
+
+.app-menu,
+.app-well-menu {
+  max-width: 27.25em;
 }
 
 .workspace-thumbnails {
@@ -2626,8 +2662,8 @@ StWidget.focused .app-well-app-running-dot {
   border-radius: 2px;
 }
 
-.search-display > StBoxLayout,
 .all-apps,
+.search-display > StBoxLayout,
 .frequent-apps > StBoxLayout {
   padding: 0px 88px 10px 88px;
 }

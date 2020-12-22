@@ -89,13 +89,13 @@ $theme_green_grey:  #3b4342;
   }
 
   @if $button_rules=='true' {
-    button:not(.flat):not(.combo):not(.titlebutton) {
+    button:not(.flat):not(.combo):not(.popup):not(.title-button):not(.down):not(.up) {
       &:checked {
         color: on($theme_color);
         background-color: $theme_color;
       }
 
-      &:focus {
+      &:focus:not(:hover) {
         box-shadow: 0 0 0 2px rgba($theme_color, 0.28);
       }
 
@@ -108,19 +108,19 @@ $theme_green_grey:  #3b4342;
       &:checked { @include entry(checked, $fc: $theme_color); }
     }
 
-    headerbar, .titlebar {
-      button:not(.flat):not(.combo):not(.titlebutton) { // reset headerbar buttons
+    headerbar.titlebar {
+      > button:not(.flat):not(.combo):not(.title-button) { // reset headerbar buttons
         &:checked {
           background-color: if($topbar == 'dark', rgba(black, 0.2), rgba(black, 0.1));
           color: $titlebar-text;
         }
 
-        &:focus {
+        &:focus:not(:hover) {
           box-shadow: 0 0 0 2px rgba($titlebar-text, 0.15);
         }
       }
 
-      stackswitcher button:not(.suggested-action):not(.destructive-action).text-button { // reset stackswitcher buttons
+      stackswitcher > button:not(.suggested-action):not(.destructive-action):not(.flat):not(.combo):not(.title-button).radio { // reset stackswitcher buttons
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                       $theme_indicator 0%,
                                       transparent 0%)
@@ -132,11 +132,20 @@ $theme_green_grey:  #3b4342;
                                         transparent 0%)
                                         0 0 2 / 0 0 2px;
           background-color: transparent;
+          color: $titlebar-text;
+        }
+
+        &:focus:not(:hover) {
+          box-shadow: 0 0 0 2px transparent;
         }
       }
     }
 
     .path-bar.linked:not(.vertical) > button { // reset path-bar buttons
+      &:focus:not(:hover) {
+        box-shadow: 0 0 0 2px transparent;
+      }
+
       &:checked {
         color: $text;
         &, &:disabled { background-color: transparent; }
@@ -162,6 +171,8 @@ $theme_green_grey:  #3b4342;
 $terminal_header: if($topbar == 'light', $titlebar, $theme_sea_green);
 
 terminal-window {
+  @include color_theme($theme_color:$theme_sea_green);
+
   > headerbar.titlebar {
     background-color: $terminal_header;
     box-shadow: inset 0 1px highlight($terminal_header), inset 0 -1px $divider;
@@ -194,8 +205,6 @@ terminal-window {
       }
     }
   }
-
-  @include color_theme($theme_color:$theme_sea_green);
 }
 
 //
@@ -258,10 +267,16 @@ window.org-gnome-gedit {
 //   background-color: $theme_indigo;
 // }
 
-hdyleaflet {
-  > stack > frame {
-    entry.search {
+hdyleaflet, leaflet {
+  > stack > frame,
+  clamp.medium {
+    entry {
       &:focus { @include entry(checked, $fc: $theme_cyan); }
+
+      selection {
+        color: on($theme_cyan);
+        background-color: $theme_cyan;
+      }
     }
   }
 }
@@ -320,41 +335,21 @@ window.background.csd {
     }
   }
 
+  > leaflet > box.vertical,
   > hdyleaflet > box.vertical {
     > stack.main-container {
       @include color_theme($theme_color:$theme_brown);
     }
+  }
 
-    > searchbar { // on Tweak and Control center sidebar
+  > hdyleaflet > box.vertical {
+    > searchbar { // on Tweak sidebar
       entry.search {
-        @include button(normal);
-
-        border-radius: $corner-radius;
-        box-shadow: none;
-        border-image: none;
-        background-color: $fill;
-
-        &:focus {
-          transition: $transition,
-                      background-size 0ms,
-                      background-image 0ms;
-          animation: ripple $ripple-fade-in-duration $ease-out forwards;
-          box-shadow: inset 0 0 0 9999px $overlay-hover, $shadow-z8;
-          background-image: radial-gradient(circle, $overlay-checked 10%, transparent 0%);
-          background-size: 0% 0%;
-
-          box-shadow: none;
-          border-image: none;
-        }
+        &:focus { @include entry(checked, $fc: $theme_brown); }
 
         selection {
-          color: $text;
-          background-color: $overlay-hover;
-        }
-
-        &:backdrop {
-          animation: none;
-          transition: none;
+          color: on($theme_brown);
+          background-color: $theme_brown;
         }
       }
     }
@@ -362,13 +357,13 @@ window.background.csd {
 }
 
 // the sidebar
-.tweak-categories {
-  row.activatable.tweak-category {
-    &:selected {
-      color: if($variant == 'light', $theme_brown, lighten($theme_brown, 35%));
+.tweak-category {
+  @extend %circular_side_row;
 
-      image, label { color: if($variant == 'light', $theme_brown, lighten($theme_brown, 35%)); }
-    }
+  &:selected {
+    color: if($variant == 'light', $theme_brown, lighten($theme_brown, 35%));
+
+    image, label { color: if($variant == 'light', $theme_brown, lighten($theme_brown, 35%)); }
   }
 }
 
@@ -379,6 +374,7 @@ window.background.csd {
 $control_center_header: if($topbar == 'light', $titlebar, $theme_cyan);
 
 window.background.csd {
+  > headerbar.titlebar > leaflet,
   > headerbar.titlebar > hdyleaflet {
     > headerbar {
       background-color: $control_center_header;
@@ -401,13 +397,13 @@ window.background.csd {
 
       > stackswitcher button:not(.suggested-action):not(.destructive-action).text-button { // reset stackswitcher buttons
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                      $theme_cyan 0%,
+                                      if($topbar == 'dark', currentColor, $theme_cyan) 0%,
                                       transparent 0%)
                                       0 0 0 / 0 0 0px;
 
         &:checked {
           border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                        $theme_cyan 100%,
+                                        if($topbar == 'dark', currentColor, $theme_cyan) 100%,
                                         transparent 0%)
                                         0 0 2 / 0 0 2px;
           background-color: transparent;
@@ -430,6 +426,7 @@ window.background.csd {
     }
   }
 
+  > leaflet > stack.background,
   > hdyleaflet > stack.background {
     @include color_theme($theme_color:$theme_cyan);
 
@@ -456,6 +453,7 @@ window.background.csd {
     }
   }
 
+  > leaflet > box.vertical,
   > hdyleaflet > box.vertical {
     > scrolledwindow.view {
       > viewport.frame {
@@ -478,6 +476,19 @@ window.background.csd {
               image, label { color: if($variant == 'light', $theme_cyan, lighten($theme_cyan, 35%)); }
             }
           }
+        }
+      }
+    }
+  }
+
+  > leaflet > box.vertical {
+    > searchbar { // on control center sidebar
+      entry.search {
+        &:focus { @include entry(checked, $fc: $theme_cyan); }
+
+        selection {
+          color: on($theme_cyan);
+          background-color: $theme_cyan;
         }
       }
     }
@@ -526,14 +537,16 @@ window.background.csd.org-gnome-Builder {
 $monitor_header: if($topbar == 'light', $titlebar, $theme_teal);
 
 window#gnome-system-monitor {
+  @include color_theme($theme_color:$theme_teal);
+
   headerbar.titlebar {
     background-color: $monitor_header;
     box-shadow: inset 0 1px highlight($monitor_header), inset 0 -1px $divider;
 
     &:backdrop { background-color: darken($monitor_header, 2%); }
-  }
 
-  @include color_theme($theme_color:$theme_teal);
+    > button.popup { border-radius: $circular-radius; }
+  }
 
   treeview.view {
     &.progressbar { // progress bar in treeviews

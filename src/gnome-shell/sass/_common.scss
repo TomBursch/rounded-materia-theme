@@ -1208,24 +1208,28 @@ $mdbt_radius: 100px;
   }
 }
 
-// Activities button
-
 $size_suffix: if($laptop == 'true', '-small', '');
 
-#panel #panelActivities.panel-button {
-  > * {
-    background-image: url("assets/activities#{$size_suffix}.svg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-color: transparent !important;
-    background-gradient-direction: none !important;
-    border: 0 solid transparent !important;
-    text-shadow: 0 0 transparent !important;
-    transition-duration: 0ms !important;
-    box-shadow: none !important;
-    color: transparent;
-  }
+Gjs_AggregateMenu.panel-button,
+Gjs_ui_panel_AggregateMenu.panel-button,
+Gjs_ArcMenu_ApplicationsButton.panel-button,
+Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-panel-menu {
+  background-color: rgba($panel_fg_color, 0.15) !important;
+}
+
+// Activities button
+Gjs_ui_panel_ActivitiesButton.panel-button {
+  background-image: url("assets/activities#{$size_suffix}.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: transparent !important;
+  background-gradient-direction: none !important;
+  border: 0 solid transparent !important;
+  text-shadow: 0 0 transparent !important;
+  transition-duration: 0ms !important;
+  box-shadow: none !important;
+  color: transparent !important;
 
   &:hover, &:active, &:overview, &:focus, &:checked {
     background-color: transparent;
@@ -1235,16 +1239,8 @@ $size_suffix: if($laptop == 'true', '-small', '');
   }
 
   &:active, &:overview, &:focus, &:checked {
-    > * { background-image: url("assets/activities-active#{$size_suffix}.svg"); }
+    background-image: url("assets/activities-active#{$size_suffix}.svg");
   }
-}
-
-// Gjs_ActivitiesButton.panel-button,
-Gjs_AggregateMenu.panel-button,
-Gjs_ui_panel_AggregateMenu.panel-button,
-Gjs_ArcMenu_ApplicationsButton.panel-button,
-Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-panel-menu {
-  background-color: rgba($panel_fg_color, 0.15) !important;
 }
 
 // calendar popover
@@ -1292,6 +1288,7 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
 .datemenu-today-button,
 .world-clocks-button,
 .weather-button,
+.events-button,
 .message-list-section-title,
 .events-section-title {
   min-height: $menuitem_size - 4px * 2;
@@ -2134,16 +2131,21 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
     .overview-icon {
       background-color: $inverse_bg_color;
       padding: 16px;
-      border-radius: 100px;
+      border-radius: $circular-radius;
+    }
+
+    &:hover .overview-icon {
+      background-color: $inverse_divider_color;
     }
   }
 
   // expanded folder
   .app-folder-dialog {
-    border-radius: $bt_radius * 3;
-    border: none;
+    border-radius: $bt_radius * 4;
+    border: 2px solid $primary_color;
     spacing: 12px;
-    background-color: rgba(black, 0.85);
+    padding: 0;
+    background-color: rgba(#101010, 0.95);
 
     & .folder-name-container {
       padding: 24px 36px 0;
@@ -2160,6 +2162,7 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
         background-color: rgba(white, 0.15);
         selection-background-color: $primary_color;
         selected-color: $light_fg_color;
+        color: $inverse_fg_color;
 
         &:focus {
           background-color: rgba(white, 0.25);
@@ -2172,7 +2175,7 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
         }
 
         &:insensitive, StLabel.hint-text {
-          color: rgba(white, 0.45);
+          color: $inverse_disabled_secondary_fg_color;
         }
       }
 
@@ -2196,20 +2199,48 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
       }
     }
 
+    & .icon-grid {
+      row-spacing: $container_padding * 2;
+      column-spacing: $container_padding * 5;
+    }
+
+    & .page-indicators {
+      margin-bottom: 18px;
+
+      .page-indicator {
+        padding: 15px 12px;
+      }
+    }
+
     & StButton#vhandle,
     & StButton#vhandle:hover,
     & StButton#vhandle:active { background-color: transparent; }
   }
+
   .app-folder-dialog-container {
-    padding: 12px;
-    width: 800px;
+    padding: $container_padding;
+    width: 600px;
     height: 600px;
   }
 
   .app-folder-icon {
-    padding: 4px;
-    spacing-rows: 4px;
-    spacing-columns: 4px;
+    padding: $container_padding;
+    spacing-rows: $container_padding;
+    spacing-columns: $container_padding;
+  }
+
+  // Rename popup for app folders
+  .rename-folder-popup {
+    .rename-folder-popup-item {
+      spacing: $container_padding;
+      &:ltr, &:rtl { padding: 0 $container_padding * 2; }
+    }
+  }
+
+  // right-click app menu
+  .app-menu,
+  .app-well-menu {
+    max-width: 27.25em;
   }
 
   // Workspace pager
@@ -2223,6 +2254,7 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
     //border-width: 0; //fixme: can't have non unoform borders :(
     // &:rtl { border-radius: $material_radius; }
   }
+
   .workspace-thumbnail-indicator {
     border: 0 solid $primary_color;
     border-width: 2px;
@@ -2231,8 +2263,8 @@ Gjs_arc-menu_linuxgem33_com_menuButton_ArcMenu_MenuButton.panel-button arc-menu-
   }
 
   //Some hacks I don't even
-  .search-display > StBoxLayout,
   .all-apps,
+  .search-display > StBoxLayout,
   .frequent-apps > StBoxLayout {
     // horizontal padding to make sure scrollbars or dash don't overlap content
     padding: 0px 88px 10px 88px;
