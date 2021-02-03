@@ -1631,19 +1631,18 @@ Gjs_ui_panel_ActivitiesButton.panel-button:active, Gjs_ui_panel_ActivitiesButton
 }
 
 .calendar-day-base:hover, .calendar-day-base:focus {
-  color: rgba(0, 0, 0, 0.87) !important;
   background-color: rgba(0, 0, 0, 0.12);
 }
 
 .calendar-day-base:active {
   color: rgba(0, 0, 0, 0.54);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #4586D8;
   border-color: transparent;
 }
 
 .calendar-day-base:selected {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.54);
+  background-color: #4586D8;
   border-color: transparent;
 }
 
@@ -1673,18 +1672,13 @@ Gjs_ui_panel_ActivitiesButton.panel-button:active, Gjs_ui_panel_ActivitiesButton
   border-left-width: 0;
 }
 
-.calendar-nonwork-day {
-  color: rgba(0, 0, 0, 0.87);
-}
-
 .calendar-today {
   background-color: transparent;
-  border: 1px solid #4586D8;
+  border: 1px solid rgba(0, 0, 0, 0.54);
   margin: 1px !important;
 }
 
 .calendar-day-with-events {
-  color: rgba(0, 0, 0, 0.38);
   background-image: url("assets/calendar-today.svg");
 }
 

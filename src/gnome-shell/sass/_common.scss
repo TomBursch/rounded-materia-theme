@@ -1376,13 +1376,13 @@ Gjs_ui_panel_ActivitiesButton.panel-button {
 
   &:active {
     color: $secondary_fg_color;
-    background-color: $track_color;
+    background-color: $primary_color;
     border-color: transparent; //avoid jumparound due to today
   }
 
   &:selected {
-    color: $fg_color;
-    background-color: $track_color;
+    color: $secondary_fg_color;
+    background-color: $primary_color;
     border-color: transparent; //avoid jumparound due to today
   }
 
@@ -1407,22 +1407,18 @@ Gjs_ui_panel_ActivitiesButton.panel-button {
 .calendar-day-left { border-left-width: 0; }
 // .calendar-work-day { }
 .calendar-nonwork-day {
-  color: $fg_color;
 }
 
 .calendar-today {
   background-color: transparent;
-  border: 1px solid $primary_color;
+  border: 1px solid $secondary_fg_color;
   margin: 1px !important;
 }
 
 .calendar-day-with-events {
-  color: $hint_fg_color;
   background-image: url("assets/calendar-today.svg");
 
   &.calendar-work-day {
-    color: $hint_fg_color;
-    font-weight: bold;
   }
 }
 
