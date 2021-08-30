@@ -1153,7 +1153,7 @@ $mdborder_color: if($variant == 'light', transparent, rgba($white, 0.15));
 //
 // TOP BAR
 //
-$panel_radius: $medium_size / 2 + 1px;
+// $panel_radius: $medium_size / 2 + 1px;
 
 #panel {
   transition-duration: 250ms; // transition from solid to transparent
@@ -1171,8 +1171,18 @@ $panel_radius: $medium_size / 2 + 1px;
     border-radius: 0;
     height: $medium_size - 2px;
   } @else {
-    border-radius: 0 0 $panel_radius $panel_radius;
+    border-radius: 0;
     height: $medium_size + 2px;
+  }
+  
+  &.solid {
+    background-color: $menu_bg_color;
+    /* transition from transparent to solid */
+    transition-duration: 250ms;
+
+    .panel-corner {
+      -panel-corner-background-color: $menu_bg_color;
+    }
   }
 
   &:overview,

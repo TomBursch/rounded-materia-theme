@@ -1368,8 +1368,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   height: 38px;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 19px 19px;
+  border-radius: 0;
   height: 38px;
+}
+
+#panel.solid {
+  background-color: rgba(255, 255, 255, 0.95);
+  /* transition from transparent to solid */
+  transition-duration: 250ms;
+}
+
+#panel.solid .panel-corner {
+  -panel-corner-background-color: rgba(255, 255, 255, 0.95);
 }
 
 #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
