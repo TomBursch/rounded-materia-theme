@@ -14,7 +14,7 @@ else
   DEST_DIR="$HOME/.local/share/themes"
 fi
 
-THEME_NAME=ChromeOS
+THEME_NAME=rounded-materia
 COLOR_VARIANTS=('' '-dark' '-light')
 SIZE_VARIANTS=('' '-compact')
 
@@ -60,7 +60,7 @@ install() {
   [[ "$color" == '-dark' ]] && local ELSE_DARK="$color"
   [[ "$color" == '-light' ]] && local ELSE_LIGHT="$color"
 
-  local THEME_DIR="$dest/$name$color$size"
+  local THEME_DIR="$dest/$name$size$color"
 
   [[ -d "$THEME_DIR" ]] && rm -rf "${THEME_DIR:?}"
 
@@ -71,13 +71,13 @@ install() {
 
   echo "[Desktop Entry]" >>                                                     "${THEME_DIR}/index.theme"
   echo "Type=X-GNOME-Metatheme" >>                                              "${THEME_DIR}/index.theme"
-  echo "Name=$name$color$size" >>                                               "${THEME_DIR}/index.theme"
+  echo "Name=$name$size$color" >>                                               "${THEME_DIR}/index.theme"
   echo "Comment=An Materia Gtk+ theme based on Elegant Design" >>               "${THEME_DIR}/index.theme"
   echo "Encoding=UTF-8" >>                                                      "${THEME_DIR}/index.theme"
   echo "" >>                                                                    "${THEME_DIR}/index.theme"
   echo "[X-GNOME-Metatheme]" >>                                                 "${THEME_DIR}/index.theme"
-  echo "GtkTheme=$name$color$size" >>                                           "${THEME_DIR}/index.theme"
-  echo "MetacityTheme=$name$color$size" >>                                      "${THEME_DIR}/index.theme"
+  echo "GtkTheme=$name$size$color" >>                                           "${THEME_DIR}/index.theme"
+  echo "MetacityTheme=$name$size$color" >>                                      "${THEME_DIR}/index.theme"
   echo "IconTheme=Adwaita" >>                                                   "${THEME_DIR}/index.theme"
   echo "CursorTheme=Adwaita" >>                                                 "${THEME_DIR}/index.theme"
   echo "ButtonLayout=close,minimize,maximize:menu" >>                           "${THEME_DIR}/index.theme"
